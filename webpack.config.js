@@ -29,7 +29,8 @@ module.exports = {
             { test: /\.(jpeg|png|gif|jpg|svg)$/, use: ['url-loader?limit=272052&name=[hash:8]-[name].[ext]'] },
             { test: /\.(woff|ttf|woff2|svg|eot)$/, use: ['url-loader']},
             { test:  /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
-            { test: /\.vue$/, use: 'vue-loader' }
+            { test: /\.vue$/, use: 'vue-loader' },
+            { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader']}
         ]
     },
     resolve: { // 配置引入文件的路径；

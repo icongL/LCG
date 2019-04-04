@@ -42,14 +42,14 @@
   export default {
       data() {
         return {
-
         }
       },
       methods: {
-
       },
       mounted() {
         
+      },
+      created() {
       },
   }
 </script>
@@ -60,8 +60,11 @@
   .app-container {
     /* 留出上下距离 */
     padding-top: 40px;
+    padding-bottom: 50px;
     /* 防止以为切换造成的滚动条 */
     overflow-x: hidden;
+    /* 基础字号 */
+    font-size: 12px;
   }
   /* 组件动画 */
   .v-enter {
@@ -77,5 +80,9 @@
     opacity: 1;
     transition: all 0.5s ease-in;
   }
-
+  ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+  }
 </style>
