@@ -1,7 +1,7 @@
 <template>
   <div class="news-list">
     <ul class="mui-tab-view">
-        <router-link class="mui-table-view-cell mui-media" v-for="(item,index) in newsList" :key="item.id" :to="'/home/newsList/' + item.id">
+        <router-link class="mui-table-view-cell mui-media" v-for="item in newsList" :key="item.id" :to="'/home/newsList/' + item.id">
             <a href="javascript:;" >
               <img class="mui-media-object mui-pull-left" :src="item.img_url">
               <div class="mui-media-body">

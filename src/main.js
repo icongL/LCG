@@ -11,19 +11,9 @@ import vueSource from 'vue-resource'
 // 导入基本Vue组件
 import baseComponent from '../src/App.vue'
 
-
 // 按需导入组件
-// 引入头部组件
-import { Header } from 'mint-ui'
-// 导入swipe组件
-import { Swipe, SwipeItem } from 'mint-ui'
- // 导入MintIndicator
- import { Indicator } from 'mint-ui'
- // 导入Toset组件
- import { Toast } from 'mint-ui'
-Vue.component(Header.name, Header)
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
+import mintUI from 'mint-ui'
+Vue.use(mintUI)
 
 // 使用Vue-source
 Vue.use(vueSource)

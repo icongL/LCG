@@ -15,48 +15,47 @@
             <div class="mui-media-body">新闻资讯</div>
           </a>
         </router-link>
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+        <router-link class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" to="/home/pictureShare">
           <a href="#">
             <img src="../../images/menu2.png" alt="">
             <div class="mui-media-body">图片分享</div>
           </a>
-        </li>
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+        </router-link>
+        <router-link class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" to="">
           <a href="#">
             <img src="../../images/menu3.png" alt="">
           <div class="mui-media-body">商品购买</div>
           </a>
-        </li>
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+        </router-link>
+        <router-link class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" to="">
           <a href="#">
             <img src="../../images/menu4.png" alt="">
             <div class="mui-media-body">留言反馈</div>
           </a>
-        </li>
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+        </router-link>
+        <router-link class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" to="">
           <a href="#">
             <img src="../../images/menu5.png" alt="">
             <div class="mui-media-body">视频专区</div>
           </a>
-        </li>
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+        </router-link>
+        <router-link class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" to="">
           <a href="#">
             <img src="../../images/menu6.png" alt="">
             <div class="mui-media-body">联系我们</div>
           </a>
-        </li>
+        </router-link>
       </ul>
     </div>
   </div>
 </template>
 <script>
- // 引入组件；
-  // 导入Toset组件
-  import { Toast } from 'mint-ui'
+  import global from '../commonComponent/global.vue'
   export default {
       data() {
           return {
-              swipeImg: []
+              swipeImg: [],
+              common: global.methods
           }
       },
       methods: {
@@ -66,7 +65,7 @@
               if (response.body.status === 0) {
                 this.swipeImg = response.body.message
               } else {
-                Toast('轮播图加载失败.....')
+                this.common.ToastMessage('轮播图加载失败.....')
               }
             })
           },

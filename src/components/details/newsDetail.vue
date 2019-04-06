@@ -6,20 +6,19 @@
          <span>点击次数：{{ newsInfo.click }} </span>
       </p>
       <div class="news-content" v-html="newsInfo.content">
-        
       </div>
-      <comment :articleID="newsID"></comment>
+      <comment :articleId="newsId"></comment>
   </div>
 </template>
 <script>
   // 导入公共组件（方法）
   import global from '../commonComponent/global.vue'
   // 导入评论子组件；
-  import comment  from '../subcomponent/comment.vue'
+   import comment  from '../subComponent/comment.vue'
   export default {
       data() {
           return {
-              newsID: this.$route.params['id'],
+              newsId: this.$route.params['id'],
               message: '新闻详情加载失败',
               // 对于异步传递的数据并且渲染到页面，不能为null或者空字符串，或者将会报错，应该是空对象的方式
               newsInfo: {},
@@ -29,16 +28,15 @@
       methods: {
         getNewsDetail () {
            // 请求地址详情数据；
-             this.$http.get('api/getnew/' + this.newsID, null).then(response => {
-               this.common.cancelLoading()
+             this.$http.get('api/getnew/' + this.newsId, null).then(response => {
+                this.common.cancelLoading()
                 if (response.body.status !== 0) {
                   return this.common.ToastMessage()
                 }
                 this.newsInfo = response.body.message[0]
-                this.common.ToastMessage()
              } ,error => {
                
-              return this.common.ToastMessage()
+                return this.common.ToastMessage()
              }) 
          }
       },
@@ -49,7 +47,6 @@
         // 请求数据；
          this.common.setLoading()
          this.getNewsDetail()
-         
       },
       mounted() {
       },

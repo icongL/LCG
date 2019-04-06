@@ -9,21 +9,21 @@
     </transition>
     <!-- 底部导航-->
     <nav class="mui-bar mui-bar-tab">
-      <router-link  tag="div" class="mui-tab-item" to="/home">
+      <router-link  tag="div" class="mui-tab-item-ball" to="/home">
 				 <span class="mui-icon mui-icon-home"></span>
 				 <span class="mui-tab-label">首页</span>
       </router-link>
-			<router-link tag="div" class="mui-tab-item" to="/member" >
+			<router-link tag="div" class="mui-tab-item-ball" to="/member" >
 				  <span class="mui-icon mui-icon-person"></span>
 				  <span class="mui-tab-label">消息</span>
       </router-link>
-      <router-link tag="div" class="mui-tab-item" to="/cart">
+      <router-link tag="div" class="mui-tab-item-ball" to="/cart">
 				 <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
             <span class="mui-badge">0</span>
         </span>
 				<span class="mui-tab-label">购物车</span>
       </router-link>
-			<router-link tag="div" class="mui-tab-item"  to="/search">
+			<router-link tag="div" class="mui-tab-item-ball"  to="/search">
 				  <span class="mui-icon mui-icon-search"></span>
 				  <span class="mui-tab-label">搜索</span>
       </router-link>
@@ -32,12 +32,8 @@
 </template>
 <script>
   // 导入MUI
-  import mui from '../lib/mui/js/mui.min.js'
-  import '../lib/mui/css/mui.min.css'
-  // 注册默认事件（此时有一个格外的BUG，即如果写入了touch-action，router-link的事件不被触发,经过初步判断为tap事件机制的问题）
-  mui('body').on('touchstart','.mui-tab-item',function(e){
-      e.stopPropagation()
-	})
+  import './lib/mui/css/mui.min.css'
+  import mui from './lib/mui/js/mui.min.js'
   //组件数据
   export default {
       data() {
@@ -56,6 +52,9 @@
 <style>
   * {
     touch-action: none;
+  }
+  body {
+    background-color: white !important;
   }
   .app-container {
     /* 留出上下距离 */
@@ -84,5 +83,37 @@
     list-style: none;
     margin: 0px;
     padding: 0px;
+  }
+  .app-container .mui-bar-tab {
+    box-shadow:0 0 1px  #cfcfcf;
+    -webkit-box-shadow: 0 0 1px #cfcfcf;
+  }
+  .mui-bar-tab .mui-tab-item-ball {
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #929292;
+    line-height: 21px;
+  }
+  .mui-bar-tab .mui-active {
+      color: #007aff;
+  }
+  .mui-tab-item-ball .mui-icon {
+    top: 3px;
+    width: 24px;
+    height: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .mui-tab-item-ball .mui-tab-label {
+    font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 </style>
