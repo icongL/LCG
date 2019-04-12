@@ -64,6 +64,9 @@
   };
 </script>
 <style scoped>
+.mui-scroll a {
+  touch-action: pan-x;
+}
 ul {
   list-style: none;
   width: 100%;

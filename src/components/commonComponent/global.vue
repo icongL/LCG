@@ -1,14 +1,15 @@
 <template></template>
 <script>
 // 导入MintIndicator
-import { Indicator } from "mint-ui";
+import { Indicator } from "mint-ui"
 // 导入Toset组件
-import { Toast } from "mint-ui";
+import { Toast } from "mint-ui"
+import mui from '../../lib/mui/js/mui.min.js'
 // 公共方法；
 export default {
   data() {
     return {
-      message: "新闻详情加载失败"
+      message: "加载失败"
     };
   },
   methods: {
@@ -35,6 +36,7 @@ export default {
       option.param = option.param != null ? option.param : ''
       this.$http.get(option.url + option.param, null).then(
         response => {
+          
           this.common.cancelLoading();
           if (response.body.status !== 0) {
             return this.common.ToastMessage(option.message)
@@ -47,6 +49,9 @@ export default {
           return this.common.ToastMessage(option.message)
         }
       );
+    },
+    getMui () {
+      return mui
     }
   }
 };

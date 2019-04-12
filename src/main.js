@@ -15,12 +15,32 @@ import baseComponent from '../src/App.vue'
 import mintUI from 'mint-ui'
 Vue.use(mintUI)
 
+
+// 安装预览插件
+import VuePreview from 'vue2-preview'
+// 使用vue2-preview
+Vue.use(VuePreview)
+
 // 使用Vue-source
 Vue.use(vueSource)
 // 配置Vue-source
 Vue.http.options.root = 'http://www.liulongbin.top:3005'
 // Vue.http.options.emulateJSON = true
 
+
+import Vuex from 'vuex'
+
+ // 使用Vue路由
+Vue.use(VueRouter)
+ // 使用vuex
+ Vue.use(Vuex)
+
+
+import vuexModule from './js/vuex.js'
+ 
+
+// 如果在模块化构建系统中，请确保在开头调用了 Vue.use(Vuex) ----------------> Vuex
+const store = new Vuex.Store(vuexModule)
 // 定义全局过滤器
 Vue.filter('strTime', function (utcTime) { 
     // 因为异步数据没有加载时，其过滤器和数据也会渲染，此时应当判断其是否有数据，有则进行过滤，无则直接返回空
@@ -46,9 +66,6 @@ Vue.filter('strTime', function (utcTime) {
     return beijing_datetime 
 })
 
-// 使用Vue路由
-Vue.use(VueRouter)
-
 var vm = new Vue({
     el: '#app',
     data: {
@@ -60,6 +77,9 @@ var vm = new Vue({
     components: {
         
     },
+    // 渲染基本模块引擎
     render: cs => cs(baseComponent),
-    router: router
+    router: router,
+    //将数据添加到Vue实例中 
+    store
 })

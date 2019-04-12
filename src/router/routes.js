@@ -11,7 +11,11 @@ import pictureCom from '../components/menu/pictureShare.vue'
 //详情页：
 import newsDetails from '../components/details/newsDetail.vue'
 import picDetail from '../components/details/picDetail.vue'
-
+import shopList from '../components/menu/shop.vue'
+import commodityDetail from '../components/details/commodityDetail.vue'
+// 商品详细部分
+import goodsDetail from '../components/goodsDetail/goodsDesc.vue'
+import goodsComments from '../components/goodsDetail/goodsComments.vue'
 // 导入mintUI
 import 'mint-ui/lib/style.css'
 // 导入MUI的扩展CSS文件以及字体图标
@@ -30,9 +34,14 @@ var router = new VueRouter({
         // menu部分
         { path: '/home/newsList', component: newsList },
         { path: '/home/pictureShare', component: pictureCom },
+        { path: '/home/shop', component: shopList },
         // 详情页部分
         { path: '/home/newsList/:id', component: newsDetails },
-        { path: '/home/pictureShare/picDetail/:picId', component: picDetail }
+        { path: '/home/pictureShare/picDetail/:picId', component: picDetail },
+        { path: '/home/shop/commodityDetail/:commodityId', component: commodityDetail },
+        // 商品详细部分
+        { path: '/home/shop/commodityDetail/goodsDesc/', name: 'goodsDesc', component: goodsDetail },
+        { path: '/home/shop/commodityDetail/goodsComments/', name: 'goodsComment', component: goodsComments }
     ],
     linkActiveClass: 'mui-active'
 })
