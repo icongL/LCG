@@ -10,4 +10,4 @@
   - 他使用webpack + Vue（vue-resource + vuex + vue-rource）
 ## 作者留言
   - 期待以后能将更多的项目开源
-  - 
+  - 这是第一个vue项目，技术可能不是很到位，希望大家多多提提建议
